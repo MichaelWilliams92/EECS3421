@@ -1,0 +1,10 @@
+SELECT C.cid, C.name, B.cat, SUM(O.price) COST
+FROM yrb_book B, yrb_customer C, yrb_offer O,  yrb_purchase P
+WHERE       C.cid = P.cid 
+        AND P.title = O.title        
+        AND P.year = O.year 
+        AND P.club = O.club
+        AND B.title = P.title 
+        AND B.year = P.year 
+GROUP BY C.cid, C.name, B.cat 
+;

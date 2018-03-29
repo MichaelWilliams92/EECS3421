@@ -1,0 +1,5 @@
+SELECT O.title, O.year
+FROM yrb_offer O
+GROUP BY O.title, O.year
+HAVING COUNT(O.club) = 9
+;

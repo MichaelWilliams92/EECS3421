@@ -1,0 +1,10 @@
+SELECT M.club, COUNT(M.club) COUNT
+FROM yrb_member M
+GROUP BY M.club
+HAVING COUNT(M.club) =     (SELECT MAX(C) 
+                            FROM (SELECT M.club, COUNT(M.club) C
+                                  FROM yrb_member M 
+                                  GROUP BY M.club)
+                            )
+;
+             

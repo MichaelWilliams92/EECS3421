@@ -1,0 +1,5 @@
+SELECT DISTINCT name 
+FROM yrb_customer C, yrb_purchase P
+where       C.cid = P.cid 
+        AND club LIKE '_A%'
+;

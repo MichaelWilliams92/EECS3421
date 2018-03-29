@@ -1,0 +1,8 @@
+SELECT DISTINCT C1.name, C2.name
+FROM yrb_customer C1, yrb_customer C2, yrb_purchase P1, yrb_purchase P2
+WHERE     C1.cid = P1.cid 
+      AND C2.cid = P2.cid 
+      AND C1.cid < c2.cid 
+      AND P1.year = P2.year 
+      AND P1.title = P2.title
+;

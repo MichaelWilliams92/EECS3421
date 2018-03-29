@@ -1,0 +1,36 @@
+SELECT name, cat, G1.cost
+FROM
+(
+    SELECT cid, Max(cost) COST
+    FROM
+
+          (SELECT C.cid, C.name, B.cat, SUM(O.price) COST
+          FROM yrb_book B, yrb_customer C, yrb_offer O,  yrb_purchase P
+          WHERE       C.cid = P.cid 
+                    AND P.title = O.title        
+                    AND P.year = O.year 
+                    AND P.club = O.club
+                    AND B.title = P.title 
+                    AND B.year = P.year 
+          GROUP BY C.cid, C.name, B.cat 
+          )
+
+    GROUP BY cid
+) G1,
+
+
+          (SELECT C.cid, C.name, B.cat, SUM(O.price) COST
+          FROM yrb_book B, yrb_customer C, yrb_offer O,  yrb_purchase P
+          WHERE       C.cid = P.cid 
+                    AND P.title = O.title        
+                    AND P.year = O.year 
+                    AND P.club = O.club
+                    AND B.title = P.title 
+                    AND B.year = P.year 
+          GROUP BY C.cid, C.name, B.cat 
+) G2
+        
+        
+WHERE     G1.cid = G2.cid 
+      AND G1.cost = G2.cost
+;

@@ -1,0 +1,19 @@
+SELECT P.cid, cast(P.when as date) as DAY,
+      (
+          (SELECT MIN(S.cost) 
+           FROM yrb_shipping S 
+           WHERE weight > SUM(B.weight * P.qnty)
+          ) 
+        + SUM(O.price * P.qnty) 
+      ) COST
+FROM yrb_purchase P, yrb_book B, yrb_offer O 
+WHERE     P.club = O.club 
+      AND B.title = O.title 
+      AND B.year = P.year 
+      AND O.title = P.title 
+      AND O.year = P.year
+      AND B.title = P.title 
+      AND B.year = O.year 
+GROUP BY p.cid, P.when
+ORDER BY P.cid
+;

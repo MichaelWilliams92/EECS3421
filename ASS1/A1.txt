@@ -1,0 +1,53 @@
+ 
+ 
+SELECT DISTINCT name FROM yrb_customer C, yrb_club CL, yrb_member M where M.club = CL.club AND M.cid = C.cid
+
+NAME                
+--------------------
+Al Bore             
+Andy Aardverk       
+Boswell Biddles     
+Cary Cizek          
+Clark Kent          
+Doris Daniels       
+Egbert Engles       
+Ekksdwl Qjksynn     
+Fanny Mae           
+Finwick Cooper      
+Fuzzy Fowles        
+Garp Google         
+George Gush         
+George Wolf         
+Henrietta Hogg      
+Ingrid Iverson      
+Jack Daniels        
+Jackie Johassen     
+Jorge Lobo          
+Kathy Lee Gifford   
+Klive Kittlehart    
+Lux Luthor          
+Margaret Mitchie    
+Mark Dogfurry       
+Nigel Nerd          
+Oswell Orson        
+Phil Regis          
+Pretence Parker     
+Qfwfq               
+Quency Quark        
+Renee Riztp         
+Sally Mae           
+Steve Songheim      
+Suzy Sedwick        
+Tracy Turnip        
+Trixie Trudeau      
+Ulya Umbrigde       
+Valerie Vixen       
+Walter Wynn         
+Xia Xu              
+Yves Yonge          
+Zachary Zoxx        
+Zebulon Zilio       
+
+  43 record(s) selected.
+
+

@@ -1,0 +1,17 @@
+SELECT B.title, B.year, O.price
+FROM yrb_book B, yrb_offer O
+WHERE     B.title = O.title 
+      AND B.year = O.year
+      AND O.price > (
+                                SELECT AVG(P)
+                                FROM
+                                      (SELECT O.club, MAX(O.price) P
+                                       FROM yrb_book B, yrb_offer O
+                                       WHERE     B.title = O.title 
+                                             AND B.year = O.year 
+                                             AND B.language = 'English'
+                                       GROUP BY O.club
+                                      )
+
+                     )
+;
